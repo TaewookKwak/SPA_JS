@@ -1,0 +1,70 @@
+/* 전체 스타일 초기화 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* 네비게이션 스타일 */
+.nav {
+  background-color: #007bff;
+  padding: 15px;
+  text-align: center;
+}
+
+.nav__link {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.nav__link:hover {
+  background-color: #0056b3;
+}
+
+/* 앱 컨테이너 스타일 */
+#app {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 제목 및 서브 제목 스타일 */
+.title {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  color: #007bff;
+}
+
+.sub_title {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  color: #666;
+}
+
+/* 링크 버튼 스타일 */
+.link_button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.link_button:hover {
+  background-color: #0056b3;
+}
