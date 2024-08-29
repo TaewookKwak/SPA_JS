@@ -1,16 +1,34 @@
-import Layout from "./Layout.js";
+import Todos from "../components/Todos.js";
+import createComponent from "../core/component.js";
+import { render } from "../index.js";
 
-export default class extends Layout {
-  constructor() {
-    super();
-    this.setTitle("홈");
-  }
+let state = {
+  todos: ["운동하기", "공부하기", "책읽기"],
+};
 
-  async getHtml() {
-    return `
-    <h1 class="title">홈페이지입니다</h1>
-    <p class="sub_title">안녕하세요. 홈페이지입니다.</p>
-    <a class="link_button" href="/posts" data-link>포스트로 이동</a>
-    `;
-  }
+function HomePage() {
+  const setState = (newState) => {
+    state = { ...state, ...newState };
+    render();
+  };
+
+  const DailyTodosComponent = createComponent(Todos, {
+    todos: state.todos,
+    setTodos: setState,
+  });
+
+  const bindEvents = () => {
+    DailyTodosComponent.bindEvents();
+  };
+
+  return {
+    element: `
+      <main>
+         ${DailyTodosComponent.element}
+      </main>
+    `,
+    bindEvents,
+  };
 }
+
+export default HomePage;
