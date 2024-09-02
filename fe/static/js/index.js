@@ -1,6 +1,29 @@
 import App from "./App.js";
 import createComponent from "./core/component.js";
 
+function createElement(type, props, ...children) {
+  return {
+    type,
+    props: {
+      ...props,
+      children: children.map((child) =>
+        typeof child === "object" ? child : createTextElement(child)
+      ),
+    },
+  };
+}
+
+// 숫자, 문자열일 경우 텍스트 엘리먼트로 변환
+function createTextElement(text) {
+  return {
+    type: "TEXT_ELEMENT",
+    props: {
+      nodeValue: text,
+      children: [],
+    },
+  };
+}
+
 export const render = () => {
   const app = document.getElementById("app");
   const AppComponent = createComponent(App);
