@@ -16,7 +16,7 @@ function App() {
   const PageComponent = createComponent(Page);
 
   const bindEvents = () => {
-    PageComponent.bindEvents();
+    if (PageComponent.bindEvents) PageComponent.bindEvents();
   };
 
   return {

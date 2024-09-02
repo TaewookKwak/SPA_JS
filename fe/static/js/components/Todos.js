@@ -1,9 +1,7 @@
 function Todos({ todos, setTodos }) {
   const handleClickAddButton = () => {
     console.log("click");
-    setTodos({
-      todos: [...todos, `item${todos.length + 1}`],
-    });
+    setTodos([...todos, `item${todos.length + 1}`]);
   };
 
   const bindEvents = () => {
