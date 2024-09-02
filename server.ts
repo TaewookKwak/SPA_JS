@@ -6,8 +6,18 @@ const PORT = 5500;
 
 // 정적 파일 제공
 app.use(
-  "/static",
-  express.static(path.resolve(__dirname, "fe", "static"), {
+  "/dist",
+  express.static(path.resolve(__dirname, "fe", "dist"), {
+    setHeaders: (res) => {
+      // res.setHeader("Cache-Control", "max-age=3600"); // 1시간 동안 캐시
+    },
+  })
+);
+
+// 정적 파일 제공
+app.use(
+  "/static/css",
+  express.static(path.resolve(__dirname, "fe", "static/css"), {
     setHeaders: (res) => {
       // res.setHeader("Cache-Control", "max-age=3600"); // 1시간 동안 캐시
     },

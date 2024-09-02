@@ -8,7 +8,13 @@ const path_1 = __importDefault(require("path"));
 const app = (0, express_1.default)();
 const PORT = 5500;
 // 정적 파일 제공
-app.use("/static", express_1.default.static(path_1.default.resolve(__dirname, "fe", "static"), {
+app.use("/dist", express_1.default.static(path_1.default.resolve(__dirname, "fe", "dist"), {
+    setHeaders: (res) => {
+        // res.setHeader("Cache-Control", "max-age=3600"); // 1시간 동안 캐시
+    },
+}));
+// 정적 파일 제공
+app.use("/static/css", express_1.default.static(path_1.default.resolve(__dirname, "fe", "static/css"), {
     setHeaders: (res) => {
         // res.setHeader("Cache-Control", "max-age=3600"); // 1시간 동안 캐시
     },
